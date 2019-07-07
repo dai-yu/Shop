@@ -3,6 +3,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+	if(request.getAttribute("gs")==null)
+		request.getRequestDispatcher("/product/list").forward(request, response);
+	%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -851,7 +855,7 @@
 							</div>
 							<div class="proImg">
 								<a href="#"> <img class="lazy" src="js/lazyload/grey.gif"
-									data-original="images/product2L.jpg" alt="">
+									data-original=<%=g.getGoodspic()%> alt="">
 								</a>
 							</div>
 							<div class="proTxt">
