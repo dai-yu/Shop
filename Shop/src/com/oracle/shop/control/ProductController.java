@@ -28,6 +28,7 @@ public class ProductController {
 	 */
 	@RequestMapping("/list")
 	public String listProduct(Model  m){
+		System.out.println("这是进入了后台的方法，");
 		List<Goods>  gs=dao.listGoods();
 		m.addAttribute("gs", gs);//讲后台dao查询出来的一个集合里面的商品信息存储到一个盒子里
 		return "index";

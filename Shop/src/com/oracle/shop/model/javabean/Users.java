@@ -10,6 +10,12 @@ import java.io.Serializable;
  */
 public class Users implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", username=" + username
+				+ ", password=" + password + ", nicheng=" + nicheng + "]";
+	}
+
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +35,13 @@ public class Users implements Serializable {
 	 * 僐儞僗僩儔僋僞.
 	 */
 	public Users() {
+	}
+
+	public Users(String username, String password, String nicheng) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nicheng = nicheng;
 	}
 
 	/**

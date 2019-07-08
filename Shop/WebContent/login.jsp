@@ -60,11 +60,11 @@
 			<div class="mainContent boxS">
 				<div class="MCup clearfix">
 					<div class="MCright W310">
+						<form method="post" action="user/login">
 						<h3 class="clearfix">
 							<span>登录澳猫团</span>
 							<a target="_blank" href="register.jsp">免费注册</a>
 						</h3>
-						<form action="user/login" method="post">
 						<p class="userName">
 							<em></em>
 							<input class="W310" name="username" placeholder="请输入您的手机号/邮箱" type="text">
@@ -85,7 +85,7 @@
 							<span>记住密码</span>
 							<a target="_blank" href="#">忘记密码？</a>
 						</p>
-						<input class="loGin W310" type="submit" value="登录">
+						<input class="loGin W310" type="submit" value="登录" />
 						</form>
 					</div>
 					<div class="MCleft W115">
