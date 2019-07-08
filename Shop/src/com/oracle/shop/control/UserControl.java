@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserControl {
 
 	@RequestMapping("/login")
-	public String login() {
-		System.out.println("user -login");
+	public String login(String username,String password) {
+		System.out.println("user -login:"+username+"   "+password);
 		return "index";
 	}
 

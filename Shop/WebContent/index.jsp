@@ -3,10 +3,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
+<%
 	if(request.getAttribute("gs")==null)
 		request.getRequestDispatcher("/product/list").forward(request, response);
-	%>
+%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -846,7 +846,7 @@
 										for(Goods  g:gs){
 						%>
 
-						<li>
+						<li style="margin-right:8px ">
 							<div class="hoverShow collect">
 								<em></em>收藏
 							</div> <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
