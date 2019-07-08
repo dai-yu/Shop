@@ -50,6 +50,6 @@ public class UserControl {
 			session.setAttribute("msg", "注册失败！");
 		}
 		System.out.println("user -register");
-		return "index";
+		return "test";
 	}
 }

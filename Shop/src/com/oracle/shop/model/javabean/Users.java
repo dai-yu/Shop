@@ -38,7 +38,6 @@ public class Users implements Serializable {
 	}
 
 	public Users(String username, String password, String nicheng) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.nicheng = nicheng;
