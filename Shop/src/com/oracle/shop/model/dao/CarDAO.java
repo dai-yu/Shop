@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.oracle.shop.model.javabean.Goods;
 import com.oracle.shop.model.javabean.Shopcart;
@@ -27,4 +28,7 @@ public interface CarDAO {
 	
 	@Select("select * from goods where goodsid=#{0}")
 	public  Goods  getGoodsByGoodsId(int goodsid);
+	
+	@Update("update shopcart set carnumber=carnumber+1 where goodsid=#{pid} and userid=#{userid}")
+	public int addProductNumber(@Param("pid")int pid ,@Param("userid")int userid);
 }

@@ -47,11 +47,11 @@ public class CarControl {
 			 * 
 			 * ???
 			 */
-			
-			int result=dao.addProduct(userid, pid);
-			System.out.println(result>0?"添加成功":"添加失败");
-			
-			
+			if(dao.addProductNumber(pid, userid)>0){
+			}else{
+				int result=dao.addProduct(userid, pid);
+				System.out.println(result>0?"添加成功":"添加失败");
+			}
 		return "redirect:list";
 		}
 	}

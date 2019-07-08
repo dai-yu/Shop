@@ -20,7 +20,7 @@ public interface UserDAO {
 	 * @param password
 	 * @return
 	 */
-	@Select("select * from users where username=#{username} and password=#{password}")
+	@Select("select * from user where username=#{username} and password=#{password}")
 	public Users login(@Param("username")String username,@Param("password")String password);
 	
 	@Insert("insert into users(username,password,nicheng) values (#{username},#{password},#{nicheng}) ")
