@@ -1,15 +1,22 @@
+<%@page import="com.oracle.shop.model.javabean.Users"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<base  href="<%=basePath%>"/>
 	<meta charset="UTF-8">
 	<title>列表-澳猫团</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/list.css">
-	<base target="_blank">
 </head>
 <body>
 	<header class="wrap-all">
@@ -24,9 +31,20 @@
 					</a>
 				</div>
 				<div class="user">
-					<a target="_blank" href="#">登录</a>
+				<%if (session.getAttribute("logineduser")==null) { %>
+					<a target="_self" href="login.jsp">登录</a>
 					<span>|</span>
-					<a target="_blank" href="#">免费注册</a>
+					<a target="_self" href="register.jsp">免费注册</a>
+					<%}else{ %>
+					欢迎您：
+					<B style="text-shadow: 0px 0px 1px blue"><%=((Users)session.getAttribute("logineduser")).getNicheng() %></B>!
+							
+							<%---这里应该是让安全退出的超级链接请求到后台的control方法，
+							方法里需要移除之前在session中保存的用户信息，然后后台直接跳转道网站首页？？？ --%>
+							<a href="user/drop">安全退出</a>
+							<%
+						} %>
+						
 				</div>
 				<div class="phone">
 					<a href="#">

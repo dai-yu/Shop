@@ -10,7 +10,7 @@
 <head>
 	<base  href="<%=basePath%>"/>
 	<meta charset="UTF-8">
-	<title>登录页-澳猫团</title>
+	<title>忘记密码</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base1.css">
@@ -30,97 +30,38 @@
 			<div class="logo">
 				<a href="list.jsp">澳猫网</a>
 			</div>
-			<div class="LAStxt">
-				欢迎登录
-			</div>
-			<div class="search">
-				<div class="txt">
-					<input type="text" placeholder="Swisse/澳洲">
-					<em></em>
-				</div>
-				<a href="#" class="btn">
-					搜索
-				</a>
-				<ul>
-					<li><a target="_blank" href="#">胶原蛋白</a></li>
-					<li><a target="_blank" href="#">叶绿素</a></li>
-					<li><a target="_blank" href="#">睡眠片</a></li>
-					<li><a target="_blank" href="#">儿童维生素</a></li>
-					<li><a target="_blank" href="#">鱼肝油</a></li>
-					<li><a target="_blank" href="#">保健品</a></li>
-					<li><a target="_blank" href="#">美容</a></li>
-					<li class="BN"><a target="_blank" href="#">运动保健</a></li>
-				</ul>
-			</div>
+			
 		</div>
 	</header>
 	<!-- 中间内容 -->
 	<div class="mainArea">
 		<div class="mainAreaW textWarp w1190">
 			<div class="mainContent boxS">
-				<div class="MCup clearfix">
+			<div class="MCup clearfix">
 					<div class="MCright W310">
-					<form action="user/login" method="post">
+			<form action="user/forget" method="post">
 						<h3 class="clearfix">
-							<span>登录澳猫团</span>
-							<a target="_self" href="register.jsp">免费注册</a>
+							<span>修改密码</span>
+							<a target="_self" href="login.jsp">登录</a>
 						</h3>
 						<p class="userName">
 							<em></em>
-							<input class="W310" name="username" placeholder="请输入您的手机号/邮箱" type="text">
+							<input class="W310" name="username" placeholder="请输入您的用户名" type="text">
 						</p>
-						<p class="passWord">
+						<p class="userName">
 							<em></em>
-							<input class="W310" name="password" placeholder="请输入密码" type="password">
+							<input class="W310" name="question" placeholder="请输入您的安全密码" type="text">
 						</p>
-						<p class="clearfix yzm">
-							<input type="text" placeholder="验证码">
-							<img alt="点击更换" title="点击更换"
-             onclick="changeVerifyCode(this)" src="../Kaptcha"/>
+						<p class="userName">
+							<em></em>
+							<input class="W310" name="answer" placeholder="请输入您答案" type="text">
 						</p>
-						<p class="clearfix Jzmm">
-							<span class="checkbox checked"></span>
-							<span>记住密码</span>
-							<a target="_self" href="forget.jsp">忘记密码？</a>
-						</p>
-						<input class="loGin W310" type="submit" value="登录">
+						<input class="loGin W310" type="submit" value="确认">
 						</form>
 					</div>
-					<div class="MCleft W115">
-						<img src="images/AppEr.png" alt="二维码">
-						<p>扫码下载客户端</p>
-						<div class="pL">
-							<span>手机可直接访问</span>
-							<strong>m.aumalls.com</strong>
-						</div>
-					</div>
+					
 				</div>
-				<div class="MCdown">
-					<p>使用其他账户登录</p>
-					<ul>
-						<li class="clearfix">
-							<em></em>
-							<a href="#">QQ登录</a>
-						</li>
-						<li class="clearfix">
-							<em></em>
-							<a href="#">微博登录</a>
-						</li>
-						<li class="clearfix">
-							<em></em>
-							<a href="#">腾讯微博</a>
-						</li>
-						<li class="clearfix">
-							<em></em>
-							<a href="#">微信登录</a>
-						</li>
-						<li class="clearfix BN">
-							<em></em>
-							<a href="#">百度登录</a>
-						</li>
-					</ul>
 				</div>
-			</div>
 		</div>
 	</div>
 	<!-- 底部 -->

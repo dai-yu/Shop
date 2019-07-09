@@ -34,25 +34,52 @@ public class UserControl {
 	}
 
 	@RequestMapping("/register")
-	public String register(String username, String password, String passwordagain , String Nicheng) {
+	public String register(String username, String password, String passwordagain , String Nicheng, String question, String answer) {
 		System.out.println("user -register");
 		//获取注册信息
 		System.out.println(username+"/t"+password+"/t"+ Nicheng);
 		
-		Users u = dao.register(username, password, Nicheng);
-		//判断密码是否一致
-		if(password==passwordagain){
-			return "index";
+		int user = dao.register(username, password, Nicheng, question, answer);
+		
+		if (user>0){
+			return "login";
 		}else{
-			System.out.println("密码不一致！");
-		return "register";
+			return "register";
 		}
+		
 	}
 	
 	@RequestMapping("/drop")
 	public String drop(HttpSession session){
 		session.putValue("logineduser", null);
 		return "index";
+	}
+	
+	@RequestMapping("/forget")
+	public String forget(String username, String question, String answer){
+		System.out.println("user -forget");
+		//获取填写信息
+		//导入dao并进行判断
+		Users result= dao.forget(username, question, answer);
+		//判断是否有该用户
+		if (result==null){
+			System.out.println("信息错误!");
+			return "forget";
+		}else{
+			return "Updatepassword";
+		}
+		
+	}
+	@RequestMapping("/Updatepassword")
+	public String update(String password,String username){
+		int update= dao.update(username, password);
+		if (update>0){
+			return "login";
+		}else{
+			return "Updatepassword";
+		}
+		
+		
 	}
 
 }
