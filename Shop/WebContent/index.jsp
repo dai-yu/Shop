@@ -859,11 +859,8 @@
 						%>
 
 						<li style="margin-right: 8px">
-							<div class="hoverShow collect">
-								<em></em>收藏
-							</div> <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
 							<div class="show">
-								<a class="add" href="car/add?pid=<%=g.getGoodsid() %>">加入购物车</a> <a class="contrast" href="#">商品对比</a>
+								<a class="add" href="car/add?pid=<%=g.getGoodsid() %>">加入购物车</a> <a class="contrast" href="#">加入收藏夹</a>
 							</div>
 							<div class="proImg">
 								<a href="#"> <img class="lazy" src="<%=g.getGoodspic()%>"

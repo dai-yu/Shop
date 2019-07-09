@@ -347,14 +347,19 @@
 						</li>
 						<li class="Lastprice">¥ <u><%=c.getGoodsprice()*sc.get(c) %></u></li>
 						<li class="last btn">
-							<a href="car/remove?pid=<%=c.getGoodsid()%>">删除</a>
+							<a href="javascript:deletecar(<%=c.getGoodsid()%>)">删除</a>
 						</li>
 					</ul>
 				</li>
-				
-				
 				<%} %>
 			</ul>
+			<script>
+			function deletecar(pid){
+				if(window.confirm("是否删除！")){
+					window.location.href="car/remove?pid="+pid;
+				}
+			}
+			</script>
 			<div class="account">
 				<ul>
 					<li>收货人:<input type="text" name="name" style="height: 25px;font-size: 14px;box-shadow:0px 0px 3px orange"/></li>

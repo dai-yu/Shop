@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oracle.shop.model.dao.UserDAO;
 import com.oracle.shop.model.javabean.Users;
@@ -15,9 +16,10 @@ public class UserControl {
 	
 	@Autowired
 	private UserDAO dao;
+	
 
 	@RequestMapping("/login")
-	public String login(String username,String password,HttpSession session) {
+	public String login(String username,String password,HttpSession  session) {
 		System.out.println("user -login");
 		
 		//1.获取用户在表单上填写的账户资料
@@ -42,14 +44,23 @@ public class UserControl {
 	}
 
 	@RequestMapping("/register")
-	public String register(String username,String password,String nicheng,HttpSession session) {
-		Users u=new Users(username,password,nicheng);
-		if(dao.register(u)){
-			session.setAttribute("msg", "注册成功！");
-		}else{
-			session.setAttribute("msg", "注册失败！");
-		}
+	public String register(String username,String password,String nickname) {
 		System.out.println("user -register");
-		return "test";
+		//1.先获取用户在表单页面上填写的要注册的用户信息
+		
+		//2.调用dao里面的方法将这个心注册的用户资料插入到数据库表中
+		int result=dao.addUser(username, password, nickname);
+		System.out.println(nickname);
+		if(result>0){
+			return "login";
+		}else{
+			return "register";
+		}
+	}
+	
+	
+	@RequestMapping("/updatePassword")
+	public String updatePassword(){
+		return "";
 	}
 }

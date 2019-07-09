@@ -22,7 +22,7 @@ public interface UserDAO {
 	 */
 	@Select("select * from user where username=#{username} and password=#{password}")
 	public Users login(@Param("username")String username,@Param("password")String password);
-	
-	@Insert("insert into users(username,password,nicheng) values (#{username},#{password},#{nicheng}) ")
-	public boolean register(Users u);
+
+	@Insert("insert into user(username,password,nicheng,image) values(#{username},#{password},#{nickname},'images/defaultUser.jpg')")
+	public int addUser(@Param("username")String username,@Param("password")String password,@Param("nickname")String nickname);
 }
