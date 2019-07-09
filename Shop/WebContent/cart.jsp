@@ -57,9 +57,9 @@
 			};
 	});
 	// 删除
-	$('.IAbdw .delet').click(function(event) {
-		$(this).parentsUntil('.IAbdArea').remove();
-	});
+// 	$('.IAbdw .delet').click(function(event) {
+// 		$(this).parentsUntil('.IAbdArea').remove();
+// 	});
 	// 购物车金额结算
 	$('.IAul .reduce').click(function(event) {
 		var n=parseFloat($(this).siblings('input').val());
@@ -347,16 +347,19 @@
 						</li>
 						<li class="Lastprice">¥ <u><%=c.getGoodsprice()*sc.get(c) %></u></li>
 						<li class="last btn">
-							<a href="javascript:deletecar(<%=c.getGoodsid()%>)">删除</a>
+							<a>移入收藏夹</a><br>
+							<a class="delet"  href="javascript:deleteProduct(<%=c.getGoodsid() %>)">删除</a>
 						</li>
 					</ul>
 				</li>
+				
+				
 				<%} %>
 			</ul>
-			<script>
-			function deletecar(pid){
-				if(window.confirm("是否删除！")){
-					window.location.href="car/remove?pid="+pid;
+			<script type="text/javascript">
+			function deleteProduct(pid){
+				if(window.confirm('确认删除这个商品吗')){
+					location.href='car/delete?pid='+pid;
 				}
 			}
 			</script>
