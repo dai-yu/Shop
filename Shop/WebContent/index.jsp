@@ -4,9 +4,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	if(request.getAttribute("gs")==null){
-	request.getRequestDispatcher("product/list").forward(request, response);
+	request.getRequestDispatcher("product/list?page=1").forward(request, response);
 }
 %>
 <%
@@ -45,7 +46,7 @@
 							
 							<%---这里应该是让安全退出的超级链接请求到后台的control方法，
 							方法里需要移除之前在session中保存的用户信息，然后后台直接跳转道网站首页？？？ --%>
-							<a href="">安全退出</a>
+							<a href="product/remove">安全退出</a>
 							<%
 						} %>
 				</div>
@@ -888,19 +889,36 @@
 				<!-- 底部页码 -->
 				<div class="footNum">
 					<ul>
-						<li class="pre"><a href="#">上一页</a></li>
-						<li class="num current"><a href="#">1</a></li>
-						<li class="num"><a href="#">2</a></li>
-						<li class="num"><a href="#">3</a></li>
-						<li class="last"><a href="#">下一页</a></li>
+					<li class="pre">当前第<%=request.getAttribute("nowPage") %>页/总共<%=request.getAttribute("allPage") %>,每页<%=request.getAttribute("count") %>条/总共<%=request.getAttribute("allCount") %>条</li>
+						<li class="pre"><a target="_self" href="product/list?page=1">首页</a></li>
+						<c:if test="${nowPage!=1}">
+							<li class="pre"><a target="_self" href="product/list?page=<%=request.getAttribute("perviousPage") %>">上一页</a></li>
+						</c:if>
+						<li class="num"><a target="_self" href="product/list?page=1">1</a></li>
+						<li class="num"><a target="_self" href="product/list?page=2">2</a></li>
+						<li class="num"><a target="_self" href="product/list?page=3">3</a></li>
+						<c:if test="${nowPage!=allPage}">
+							<li class="last"><a target="_self" href="product/list?page=<%=request.getAttribute("nextPage") %>">下一页</a></li>
+						</c:if>
+						<li class="last"><a target="_self" href="product/list?page=<%=request.getAttribute("allPage") %>">尾页</a></li>
 						<li class="txt">向第</li>
-						<li class="ipt"><input type="text"></li>
-						<li><button>跳转</button></li>
+						<li class="ipt"><input type="text" id="tiao"></li>
+						<li class="num"><a target="_self" href="javascript:tiao()">跳转</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="allCount" value="<%=request.getAttribute("allPage")%>"/>
+						<script>
+						function tiao(){
+							if(parseInt($("#tiao").val())>parseInt($("#allCount").val()) || parseInt($("#tiao").val())<1){
+								alert("页面不存在！请重新输入。");
+							}else{
+								window.location.href="product/list?page="+$("#tiao").val();
+							}
+						}
+						</script>
 	<!-- 底部 -->
 	<div class="foot">
 		<!-- 保证 -->

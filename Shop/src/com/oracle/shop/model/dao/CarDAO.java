@@ -2,6 +2,7 @@ package com.oracle.shop.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -31,4 +32,7 @@ public interface CarDAO {
 	
 	@Update("update shopcart set carnumber=carnumber+1 where goodsid=#{pid} and userid=#{userid}")
 	public int addProductNumber(@Param("pid")int pid ,@Param("userid")int userid);
+
+	@Delete("delete from shopcart where goodsid=#{pid} and userid=#{userid}")
+	public void removecart(@Param("pid")int pid,@Param("userid")int userid);
 }

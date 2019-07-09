@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>0</x>
-	<y>0</y>
+	<y>26</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -39,8 +39,8 @@
 		<use_bezier_curve>false</use_bezier_curve>
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
-			<category_name_to_export></category_name_to_export>
-			<ddl_output></ddl_output>
+			<category_name_to_export>All</category_name_to_export>
+			<ddl_output>C:\Users\Administrator\Desktop\第九组的E_R图.sql</ddl_output>
 			<excel_output></excel_output>
 			<excel_template></excel_template>
 			<image_output></image_output>
@@ -100,7 +100,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-07-07 10:49:44</creation_date>
-			<updated_date>2019-07-07 15:08:15</updated_date>
+			<updated_date>2019-07-09 11:00:38</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -345,7 +345,7 @@
 		</word>
 		<word>
 			<id>16</id>
-			<length>null</length>
+			<length>30</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -354,7 +354,7 @@
 			<description></description>
 			<logical_name>订单编号</logical_name>
 			<physical_name>orderid</physical_name>
-			<type>integer</type>
+			<type>nvarchar(n)</type>
 		</word>
 		<word>
 			<id>17</id>
@@ -922,7 +922,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>integer</type>
+					<type>nvarchar(n)</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -998,10 +998,10 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>integer</type>
+					<type>nvarchar(n)</type>
 					<constraint></constraint>
 					<default_value></default_value>
-					<auto_increment>true</auto_increment>
+					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>

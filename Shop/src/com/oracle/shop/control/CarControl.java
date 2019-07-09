@@ -82,4 +82,11 @@ public class CarControl {
 		return "cart";
 		}
 	}
+	
+	@RequestMapping("/remove")
+	public String remove(HttpSession session,int pid){
+		int userid=((Users)session.getAttribute("logineduser")).getUserid();
+		dao.removecart(pid,userid);
+		return "redirect:list";
+	}
 }

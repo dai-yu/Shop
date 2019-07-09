@@ -347,8 +347,7 @@
 						</li>
 						<li class="Lastprice">¥ <u><%=c.getGoodsprice()*sc.get(c) %></u></li>
 						<li class="last btn">
-							<button>移入收藏夹</button><br>
-							<button class="delet">删除</button>
+							<a href="car/remove?pid=<%=c.getGoodsid()%>">删除</a>
 						</li>
 					</ul>
 				</li>
