@@ -559,9 +559,9 @@
 				<!-- 左边导航 -->
 				<div class="MeLeftNav">
 					<div class="Mehead">
-						<div class="pic"></div>
+						<div class="pic"><img src="<%=((Users)session.getAttribute("logineduser")).getImage()%>" style="width: 74px;height: 74px;border-radius:37px;border:1px solid black;margin-left: 5px;margin-right: 5px;position: relative;top: 5px;box-shadow:0px 0px 2px green"/></div>
 						<div class="txt">
-							<p class="userName">15***11@qq.com</p>
+							<p class="userName"><%=((Users)session.getAttribute("logineduser")).getNicheng()%></p>
 							<p class="rank">
 								<i>V1</i>普通会员
 							</p>
@@ -667,7 +667,7 @@
 									for(Orders o:od.keySet()){
 								%>
 									<div style="border: 1px solid blue;padding-top: 20px">
-									<h1 style="margin-bottom: 20px;margin-left: 20px;text-shadow: 0px 0px 2px green">订单编号:<%=o.getOrderid() %>&nbsp;&nbsp;&nbsp;
+									<h1 style="margin-bottom: 20px;margin-left: 20px;">订单编号:<%=o.getOrderid() %>&nbsp;&nbsp;&nbsp;
 									下单时间:<%=o.getOrderdate() %>&nbsp;&nbsp;&nbsp;
 									收货人:<%=o.getName() %>&nbsp;&nbsp;&nbsp;
 									收货地址:<%=o.getAddress()%>&nbsp;&nbsp;&nbsp;
