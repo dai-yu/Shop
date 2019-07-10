@@ -2,6 +2,7 @@ package com.oracle.shop.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,4 +18,8 @@ public interface FavDAO {
 	
 	@Select("select *  from goods where goodsid in (select goodsid from collectors where userid=#{0})")
 	public List<Goods> listAllProductsOfFav(int userid);
+	
+	
+	@Delete("delete  from collectors where goodsid=#{pid} and userid=#{userid}")
+	public int remove(@Param("pid")int pid,@Param("userid")int userid);
 }

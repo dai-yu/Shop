@@ -66,4 +66,15 @@ public class OrderControl {
 			return "orders";
 		}
 	}
+	
+	@RequestMapping("remove")
+	public String remove(int goodsid,String orderid,HttpSession session){
+		if(session.getAttribute("logineduser")==null){
+			//如果未登陆，跳转到登录页面
+			return "login";
+		}else{
+			int result=dao.remove(goodsid,orderid);
+			return "redirect:list";
+		}
+	}
 }

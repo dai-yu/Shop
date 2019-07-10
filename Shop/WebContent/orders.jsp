@@ -30,8 +30,17 @@
 					</a>
 				</div>
 				<div class="user">
-					<a target="_blank" href="#">登录</a> <span>|</span> <a
+					<% if(session.getAttribute("logineduser")==null){ %>
+						<a  href="login.jsp">登录</a> <span>|</span> <a
 						target="_blank" href="#">免费注册</a>
+						<%}else{ %>
+							<img src="<%=((Users)session.getAttribute("logineduser")).getImage()%>" style="width: 16px;height: 16px;border-radius:8px;border:1px solid black;margin-left: 5px;margin-right: 5px;position: relative;top: 5px;box-shadow:0px 0px 2px green"/>欢迎您：<B style="text-shadow: 0px 0px 1px green"><%=((Users)session.getAttribute("logineduser")).getNicheng()%></B>!
+							
+							<%---这里应该是让安全退出的超级链接请求到后台的control方法，
+							方法里需要移除之前在session中保存的用户信息，然后后台直接跳转道网站首页？？？ --%>
+							<a href="product/remove">安全退出</a>
+							<%
+						} %>
 				</div>
 				<div class="phone">
 					<a href="#"> <em></em> <span>手机逛澳猫</span>
@@ -690,7 +699,7 @@
 													<a href="">订单详情</a>
 												</p>
 											</li>
-											<li class="five"><a href="">取消订单</a></li>
+											<li class="five"><a href="order/remove?goodsid=<%=g.getGoodsid()%>&orderid=<%=o.getOrderid()%>">取消订单</a></li>
 											
 										</ul>
 									</div>

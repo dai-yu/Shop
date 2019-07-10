@@ -35,4 +35,7 @@ public interface CarDAO {
 
 	@Delete("delete from shopcart where goodsid=#{pid} and userid=#{userid}")
 	public void removecart(@Param("pid")int pid,@Param("userid")int userid);
+
+	@Select("select count(*) from shopcart where userid=#{userid}")
+	public int count(@Param("userid")int userid);
 }

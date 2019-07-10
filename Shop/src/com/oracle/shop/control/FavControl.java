@@ -45,5 +45,15 @@ public class FavControl {
 		}
 	}
 	
-	
+	@RequestMapping("remove")
+	public String removeFav(int pid,HttpSession session){
+		if(session.getAttribute("logineduser")==null){
+			return "login";
+		}else{
+			int userid=((Users)session.getAttribute("logineduser")).getUserid();
+			int result=dao.remove(pid, userid);
+			System.out.println(result>0?"添加成功":"添加失败");
+			return "redirect:list";
+		}
+	}
 }

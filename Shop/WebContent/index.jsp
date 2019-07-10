@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/list.css">
+<script src="js/jquery-1.7.2.min.js"></script>
 <base target="_blank">
 </head>
 <body>
@@ -59,7 +60,7 @@
 			<!-- 头部右边 -->
 			<div class="headRight">
 				<ul>
-					<li><a href="#">我的订单</a></li>
+					<li><a href="order/list">我的订单</a></li>
 					<span>|</span>
 					<li class="erWrap"><strong></strong> <a href="#">个人中心</a> <em></em>
 						<p class="headEr">
@@ -77,7 +78,7 @@
 					<span>|</span>
 					<li class="erWrap"><a href="#">收藏夹</a> <em></em>
 						<p class="headEr different">
-							<a href="#">收藏的宝贝</a> <a class="last" href="#">收藏的品牌</a>
+							<a href="fav/list">收藏的宝贝</a>
 						</p></li>
 					<span>|</span>
 					<li class="erWrap"><a href="#">帮助中心</a> <em></em>
@@ -223,8 +224,22 @@
 		</div>
 		<!--购物车-->
 		<a href="car/list" class="buy_car">
-			<p>购物车</p> <em>0</em>
+			<p>购物车</p> <em id="countem"></em>
 		</a>
+		<script type="text/javascript">
+		$(function(){
+			$.post(
+				"car/count",
+				"",
+				function(data,status){
+					$("#countem").append(data);
+				}
+			);
+		});
+		
+		</script>
+		
+		
 		<!-- 新会员 -->
 		<div class="app">
 			<a href="#"></a>

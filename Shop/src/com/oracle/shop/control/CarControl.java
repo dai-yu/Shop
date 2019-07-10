@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import sun.print.resources.serviceui;
 
 import com.oracle.shop.model.dao.CarDAO;
 import com.oracle.shop.model.javabean.Goods;
@@ -88,5 +91,12 @@ public class CarControl {
 		int userid=((Users)session.getAttribute("logineduser")).getUserid();
 		dao.removecart(pid,userid);
 		return "redirect:list";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/count")
+	public String count(HttpSession session){
+		int userid=((Users)session.getAttribute("logineduser")).getUserid();
+		return String.valueOf(dao.count(userid));
 	}
 }

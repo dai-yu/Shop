@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -20,6 +21,7 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/Cart.css">
+	<script src="js/jquery-1.7.2.min.js"></script>
     <script >
     $(function() {
 	// 购物车的复选框全选
@@ -345,7 +347,7 @@
 							<input type="text" name="count" value="<%=sc.get(c) %>">
 							<span class="add">+</span>
 						</li>
-						<li class="Lastprice">¥ <u><%=c.getGoodsprice()*sc.get(c) %></u></li>
+						<li class="Lastprice">¥<u><fmt:formatNumber type="number" value="<%=c.getGoodsprice()*sc.get(c)%>" pattern="0.00" maxFractionDigits="2"></fmt:formatNumber></u></li>
 						<li class="last btn">
 							<a>移入收藏夹</a><br>
 							<a class="delet"  href="javascript:deleteProduct(<%=c.getGoodsid() %>)">删除</a>
@@ -359,7 +361,7 @@
 			<script type="text/javascript">
 			function deleteProduct(pid){
 				if(window.confirm('确认删除这个商品吗')){
-					location.href='car/delete?pid='+pid;
+					location.href='car/remove?pid='+pid;
 				}
 			}
 			</script>
