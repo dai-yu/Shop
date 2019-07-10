@@ -21,6 +21,34 @@
 	<link media="screen and (min-width: 992px) and (max-width:1200px)" rel="stylesheet" href="css/login-small.css">
 	<link media="screen and (min-width: 768px) and (max-width:991px)" rel="stylesheet" href="css/base1-pad.css">
 	<link media="screen and (min-width: 768px) and (max-width:991px)" rel="stylesheet" href="css/login-pad.css">
+	<script type="text/javascript">
+	function validate_required(field,alerttxt)
+	{
+	with (field)
+	  {
+	  if (value==null||value=="")
+	    {alert(alerttxt);return false;}
+	  else {return true;}
+	  }
+	}
+
+	function validate_form(thisform)
+	{
+	with (thisform)
+	  {
+	  if (validate_required(username,"用户名不能为空！")==false)
+	    {email.focus();return false;}
+	  if (validate_required(password,"密码不能为空！")==false)
+	    {email.focus();return false;}
+	  if (validate_required(Nicheng,"昵称不能为空！")==false)
+	    {email.focus();return false;}
+	  if (validate_required(question,"安全问题不能为空！")==false)
+	    {email.focus();return false;}
+	  if (validate_required(answer,"问题答案不能为空！")==false)
+	    {email.focus();return false;}
+	  }
+	}
+	</script>
 </head>
 <body>
 	<!-- 顶部 -->
@@ -41,7 +69,7 @@
 			<div class="mainContent boxS">
 			<div class="MCup clearfix">
 					<div class="MCright W310">
-			<form action="user/register" method="post">
+			<form action="user/register" onsubmit="return validate_form(this)" method="post">
 						<h3 class="clearfix">
 							<span>注册澳猫团</span>
 							<a target="_self" href="login.jsp">登录</a>
