@@ -1,3 +1,4 @@
+<%@page import="com.oracle.shop.model.javabean.Users"%>
 <%@page import="com.oracle.shop.model.javabean.Goods"%>
 <%@page import="com.oracle.shop.model.javabean.Orders"%>
 <%@page import="java.util.Map"%>

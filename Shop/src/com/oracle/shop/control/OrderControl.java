@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.oracle.shop.model.dao.CarDAO;
 import com.oracle.shop.model.dao.OrderDAO;
 import com.oracle.shop.model.javabean.Goods;
 import com.oracle.shop.model.javabean.Items;
@@ -25,6 +26,9 @@ import com.oracle.shop.model.javabean.Users;
 public class OrderControl {
 	@Autowired
 	private OrderDAO dao;
+	
+	@Autowired
+	private CarDAO cardao;
 
 	@RequestMapping("/add")
 	public  String addOrder(int[] pid,int[] count,String name,String address,String remark,HttpSession session){
@@ -37,6 +41,9 @@ public class OrderControl {
 		//往订单详情表中插入订单详情数据
 		for(int n=0;n<pid.length;n++){
 			int result1=dao.addOrderItem(orderNum, pid[n], count[n]);
+			if(result>0){
+				cardao.removecart(pid[n],((Users)session.getAttribute("logineduser")).getUserid());
+			}
 		}
 		System.out.println(result>0?"订单提成功":"提交失败");
 		return "redirect:list";
@@ -73,7 +80,10 @@ public class OrderControl {
 			//如果未登陆，跳转到登录页面
 			return "login";
 		}else{
-			int result=dao.remove(goodsid,orderid);
+			dao.remove(goodsid,orderid);
+			if(dao.queryOrder(orderid)<1){
+				dao.removeOrder(orderid);
+			}
 			return "redirect:list";
 		}
 	}

@@ -36,4 +36,10 @@ public interface OrderDAO {
 
 	@Delete("delete from items where goodsid=#{goodsid} and orderid=#{orderid}")
 	public int remove(@Param("goodsid")int goodsid, @Param("orderid")String orderid);
+
+	@Select("select count(*) from items where orderid=#{orderid}")
+	public int queryOrder(String orderid);
+
+	@Delete("delete from orders where orderid=#{orderid}")
+	public void removeOrder(String orderid);
 }

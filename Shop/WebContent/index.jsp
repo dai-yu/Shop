@@ -30,6 +30,12 @@
 <base target="_blank">
 </head>
 <body>
+	<% if(session.getAttribute("logineduser")!=null){ %>
+		<div >
+		<img src="<%=((Users)session.getAttribute("logineduser")).getImage()%>" style="position: fixed; top:40%;left: 5%;height: 200px;width: 200px;border-radius:100px;border:1px solid black;">
+		<font style="position: fixed; top:64%;left: 5%;"><b>欢迎您！</b><%=((Users)session.getAttribute("logineduser")).getNicheng()%></font>
+		</div>
+	<%} %>
 	<header class="wrap-all">
 		<div class="head center_1200">
 			<!-- 头部左边 -->
