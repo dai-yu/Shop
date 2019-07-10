@@ -83,7 +83,7 @@
 						<p class="clearfix Jzmm">
 							<span class="checkbox checked"></span>
 							<span>记住密码</span>
-							<a target="_blank" href="#">忘记密码？</a>
+							<a target="_blank" href="user/forget">忘记密码？</a>
 						</p>
 						<input class="loGin W310" type="submit" value="登录" />
 						</form>

@@ -10,7 +10,7 @@
 <head>
 	<base  href="<%=basePath%>"/>
 	<meta charset="UTF-8">
-	<title>注册页-澳猫团</title>
+	<title>忘记密码</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base1.css">
@@ -21,36 +21,6 @@
 	<link media="screen and (min-width: 992px) and (max-width:1200px)" rel="stylesheet" href="css/login-small.css">
 	<link media="screen and (min-width: 768px) and (max-width:991px)" rel="stylesheet" href="css/base1-pad.css">
 	<link media="screen and (min-width: 768px) and (max-width:991px)" rel="stylesheet" href="css/login-pad.css">
-
-<!-- 	表单验证 -->
-	<script type="text/javascript">
-	function validate_required(field,alerttxt)
-	{
-	with (field)
-	  {
-	  if (value==null||value=="")
-	    {alert(alerttxt);return false;}
-	  else {return true;}
-	  }
-	}
-
-	function validate_form(thisform)
-	{
-	with (thisform)
-	  {
-	  if (validate_required(username,"用户名不能为空！")==false)
-	    {email.focus();return false;}
-	  if (validate_required(password,"密码不能为空！")==false)
-	    {email.focus();return false;}
-	  if (validate_required(Nicheng,"昵称不能为空！")==false)
-	    {email.focus();return false;}
-	  if (validate_required(question,"安全问题不能为空！")==false)
-	    {email.focus();return false;}
-	  if (validate_required(answer,"答案不能为空！")==false)
-	    {email.focus();return false;}
-	  }
-	}
-	</script>
 </head>
 <body>
 	<!-- 顶部 -->
@@ -60,9 +30,7 @@
 			<div class="logo">
 				<a href="list.jsp">澳猫网</a>
 			</div>
-			<div class="LAStxt">
-				欢迎注册
-			</div>
+			
 		</div>
 	</header>
 	<!-- 中间内容 -->
@@ -71,22 +39,14 @@
 			<div class="mainContent boxS">
 			<div class="MCup clearfix">
 					<div class="MCright W310">
-			<form action="user/register" onsubmit="return validate_form(this)" method="post">
+			<form action="user/forget" method="post">
 						<h3 class="clearfix">
-							<span>注册澳猫团</span>
+							<span>修改密码</span>
 							<a target="_self" href="login.jsp">登录</a>
 						</h3>
 						<p class="userName">
 							<em></em>
 							<input class="W310" name="username" placeholder="请输入您的用户名" type="text">
-						</p>
-						<p class="passWord">
-							<em></em>
-							<input class="W310" name="password" placeholder="请输入密码" type="password">
-						</p>
-						<p class="userName">
-							<em></em>
-							<input class="W310" name="Nicheng" placeholder="请输入您的昵称" type="text">
 						</p>
 						<p class="userName">
 							<em></em>
@@ -96,13 +56,10 @@
 							<em></em>
 							<input class="W310" name="answer" placeholder="请输入您答案" type="text">
 						</p>
-						<input class="loGin W310" type="submit" value="注册">
+						<input class="loGin W310" type="submit" value="确认">
 						</form>
 					</div>
-					<div class="MCleft W115">
-						<img style="width: 100px;height: 100px" src="images/AppEr.png" alt="二维码">
-						<p>选择头像</p>
-					</div>
+					
 				</div>
 				</div>
 		</div>
